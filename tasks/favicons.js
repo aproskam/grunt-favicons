@@ -243,6 +243,11 @@ module.exports = function(grunt) {
                     grunt.log.write('apple-touch-icon-152x152-precomposed.png... ');
                     convert(combine(source, f.dest, "152x152", "apple-touch-icon-152x152-precomposed.png", additionalOpts, options.appleTouchPadding));
                     grunt.log.ok();
+
+                    // 180x180: iPhone 6+, iOS 8 and higher 
+                    grunt.log.write('apple-touch-icon-180x180-precomposed.png... ');
+                    convert(combine(source, f.dest, "180x180", "apple-touch-icon-180x180-precomposed.png", additionalOpts, options.appleTouchPadding));
+                    grunt.log.ok();
                 }
 
                 // 228x228: Coast
@@ -362,6 +367,8 @@ module.exports = function(grunt) {
 
                     // iOS
                     if (options.apple) {
+                        elements += options.indent + "<link rel=\"apple-touch-icon-precomposed\" sizes=\"180x180\" href=\"" + options.HTMLPrefix + "apple-touch-icon-180x180-precomposed.png\">\n";
+
                         elements += options.indent + "<link rel=\"apple-touch-icon-precomposed\" sizes=\"152x152\" href=\"" + options.HTMLPrefix + "apple-touch-icon-152x152-precomposed.png\">\n";
                         elements += options.indent + "<link rel=\"apple-touch-icon-precomposed\" sizes=\"120x120\" href=\"" + options.HTMLPrefix + "apple-touch-icon-120x120-precomposed.png\">\n";
 
